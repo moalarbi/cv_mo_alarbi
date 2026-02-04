@@ -1,5 +1,6 @@
 import { Toaster } from '@/components/ui/sonner';
 import Header from '@/components/Header';
+import StickyNav from '@/components/StickyNav';
 import ScrollToTop from '@/components/ScrollToTop';
 import Hero from '@/sections/Hero';
 import Stats from '@/sections/Stats';
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#F7F7F7]">
       <Header />
+      <StickyNav />
       <main>
         <Hero />
         <Stats />

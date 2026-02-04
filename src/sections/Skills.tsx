@@ -15,36 +15,42 @@ const skillCategories = [
     title: 'استراتيجيات نمو العلامة التجارية',
     chips: ['ولاء العملاء', 'زيادة التحويل', 'الوعي بالعلامة التجارية', 'رحلة العميل'],
     color: 'bg-blue-50 text-blue-600',
+    isCore: true,
   },
   {
     icon: Target,
     title: 'التسويق بالأداء والنتائج',
     chips: ['إعلانات سناب شات', 'إعلانات جوجل', 'إعلانات تيك توك', 'إعلانات ميتا'],
     color: 'bg-purple-50 text-purple-600',
+    isCore: true,
   },
   {
     icon: Smartphone,
     title: 'تسويق تطبيقات الجوال',
     chips: ['زيادة التحميلات', 'تحسين متجر التطبيقات ASO', 'الاحتفاظ بالمستخدمين', 'الاستحواذ على العملاء'],
     color: 'bg-emerald-50 text-emerald-600',
+    isCore: true,
   },
   {
     icon: Filter,
     title: 'تحسين قمع المبيعات',
     chips: ['معدل التحويل CRO', 'صفحات الهبوط', 'استراتيجيات العروض', 'اختبارات A/B Testing'],
     color: 'bg-amber-50 text-amber-600',
+    isCore: true,
   },
   {
     icon: FileText,
     title: 'أنظمة صناعة المحتوى',
     chips: ['محتوى المستخدم UGC', 'إدارة الإنتاج الإبداعي', 'التقويم المحتوي', 'الفيديوهات القصيرة'],
     color: 'bg-rose-50 text-rose-600',
+    isCore: true,
   },
   {
     icon: BarChart3,
     title: 'التحليل والتقارير الرقمية',
     chips: ['تحليل البيانات', 'استخراج الرؤى', 'مؤشرات الأداء KPIs', 'لوحات البيانات'],
     color: 'bg-cyan-50 text-cyan-600',
+    isCore: true,
   },
   {
     icon: Users,
@@ -89,9 +95,16 @@ export default function Skills() {
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
-                {category.title}
-              </h3>
+              <div className="flex items-start justify-between mb-4">
+                <h3 className="text-lg font-bold text-gray-900 flex-1">
+                  {category.title}
+                </h3>
+                {category.isCore && (
+                  <span className="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
+                    أساسية
+                  </span>
+                )}
+              </div>
 
               {/* Chips */}
               <div className="flex flex-wrap gap-2">

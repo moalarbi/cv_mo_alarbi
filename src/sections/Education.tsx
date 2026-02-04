@@ -1,5 +1,6 @@
 import { GraduationCap, Award, ExternalLink, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const education = [
   {
@@ -89,119 +90,139 @@ export default function Education() {
           </p>
         </div>
 
-        {/* Education Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-          {education.map((edu, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-6 shadow-card hover:shadow-soft transition-shadow"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-6 h-6" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">
-                    {edu.degree}
-                  </h3>
-                  <p className="text-gray-600 mb-2">{edu.institution}</p>
-                  {edu.badge && (
-                    <span
-                      className={`inline-block px-3 py-1 text-sm font-medium rounded-full ${edu.badgeColor}`}
-                    >
-                      {edu.badge}
-                    </span>
-                  )}
-                  {edu.years && (
-                    <span className="text-sm text-gray-500">{edu.years}</span>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Tabs */}
+        <Tabs defaultValue="education" className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8">
+            <TabsTrigger value="education">التعليم</TabsTrigger>
+            <TabsTrigger value="certifications">الشهادات</TabsTrigger>
+          </TabsList>
 
-        {/* Professional Certificates */}
-        <div className="mb-12">
-          <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <Award className="w-5 h-5 text-amber-600" />
-            الشهادات الاحترافية
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {professionalCerts.map((cert, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl p-5 shadow-card hover:shadow-soft transition-shadow"
-              >
-                <h4 className="font-semibold text-gray-900 mb-1">{cert.name}</h4>
-                <p className="text-sm text-gray-500">{cert.issuer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* LinkedIn Certifications */}
-        <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-            <Linkedin className="w-5 h-5 text-blue-600" />
-            Licenses & Certifications
-          </h3>
-          <div className="bg-white rounded-2xl shadow-card overflow-hidden">
-            <div className="grid grid-cols-1 divide-y divide-gray-100">
-              {linkedInCerts.map((cert, index) => (
+          {/* Education Tab */}
+          <TabsContent value="education">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {education.map((edu, index) => (
                 <div
                   key={index}
-                  className="p-4 sm:p-5 flex items-start gap-4 hover:bg-gray-50 transition-colors"
+                  className="bg-white rounded-2xl p-6 shadow-card hover:shadow-soft transition-shadow"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                    <Linkedin className="w-5 h-5 text-blue-600" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0">
+                      <GraduationCap className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-gray-600 mb-2">{edu.institution}</p>
+                      {edu.badge && (
+                        <span
+                          className={`inline-block px-3 py-1 text-sm font-medium rounded-full ${edu.badgeColor}`}
+                        >
+                          {edu.badge}
+                        </span>
+                      )}
+                      {edu.years && (
+                        <span className="text-sm text-gray-500">{edu.years}</span>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-medium text-gray-900 text-sm sm:text-base leading-snug mb-1">
-                      {cert.name}
-                    </h4>
-                    <p className="text-sm text-gray-500">
-                      LinkedIn — Issued {cert.date}
-                    </p>
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-shrink-0 rounded-full text-xs"
-                  >
-                    Show credential
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                  </Button>
                 </div>
               ))}
-              {/* PMP Cert */}
-              <div className="p-4 sm:p-5 flex items-start gap-4 hover:bg-gray-50 transition-colors bg-gray-50/50">
-                <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
-                  <Award className="w-5 h-5 text-purple-600" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-medium text-gray-900 text-sm sm:text-base leading-snug mb-1">
-                    {pmpCert.name}
-                  </h4>
-                  <p className="text-sm text-gray-500">
-                    {pmpCert.issuer} — Issued {pmpCert.date}
-                  </p>
-                  <p className="text-xs text-gray-400 mt-1">
-                    Credential ID: {pmpCert.credentialId}
-                  </p>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex-shrink-0 rounded-full text-xs"
-                >
-                  Show credential
-                  <ExternalLink className="w-3 h-3 mr-1" />
-                </Button>
+            </div>
+          </TabsContent>
+
+          {/* Certifications Tab */}
+          <TabsContent value="certifications">
+            {/* Note */}
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-8 text-center">
+              <p className="text-sm text-gray-700">
+                الشهادات مرتبطة بتطبيقات عملية في المشاريع المذكورة.
+              </p>
+            </div>
+
+            {/* Professional Certificates */}
+            <div className="mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <Award className="w-5 h-5 text-amber-600" />
+                الشهادات الاحترافية
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {professionalCerts.map((cert, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-xl p-5 shadow-card hover:shadow-soft transition-shadow"
+                  >
+                    <h4 className="font-semibold text-gray-900 mb-1">{cert.name}</h4>
+                    <p className="text-sm text-gray-500">{cert.issuer}</p>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
+
+            {/* LinkedIn Certifications */}
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                <Linkedin className="w-5 h-5 text-blue-600" />
+                Licenses & Certifications
+              </h3>
+              <div className="bg-white rounded-2xl shadow-card overflow-hidden max-h-[600px] overflow-y-auto">
+                <div className="grid grid-cols-1 divide-y divide-gray-100">
+                  {linkedInCerts.map((cert, index) => (
+                    <div
+                      key={index}
+                      className="p-4 sm:p-5 flex items-start gap-4 hover:bg-gray-50 transition-colors"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                        <Linkedin className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-medium text-gray-900 text-sm sm:text-base leading-snug mb-1">
+                          {cert.name}
+                        </h4>
+                        <p className="text-sm text-gray-500">
+                          LinkedIn — Issued {cert.date}
+                        </p>
+                      </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-shrink-0 rounded-full text-xs"
+                      >
+                        Show credential
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                      </Button>
+                    </div>
+                  ))}
+                  {/* PMP Cert */}
+                  <div className="p-4 sm:p-5 flex items-start gap-4 hover:bg-gray-50 transition-colors bg-gray-50/50">
+                    <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
+                      <Award className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-medium text-gray-900 text-sm sm:text-base leading-snug mb-1">
+                        {pmpCert.name}
+                      </h4>
+                      <p className="text-sm text-gray-500">
+                        {pmpCert.issuer} — Issued {pmpCert.date}
+                      </p>
+                      <p className="text-xs text-gray-400 mt-1">
+                        Credential ID: {pmpCert.credentialId}
+                      </p>
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-shrink-0 rounded-full text-xs"
+                    >
+                      Show credential
+                      <ExternalLink className="w-3 h-3 mr-1" />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );

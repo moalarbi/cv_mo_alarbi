@@ -1,4 +1,4 @@
-import { Briefcase, MapPin, Calendar } from 'lucide-react';
+import { Briefcase, MapPin, Calendar, Wrench } from 'lucide-react';
 
 const experiences = [
   {
@@ -15,6 +15,7 @@ const experiences = [
       'إدارة وتوجيه فرق متعددة (محتوى، تصميم، تصوير وانتاج المحتوى الاعلاني والسوشيال ميديا، إعلانات)',
       'الإشراف على جودة ظهور العلامة التجارية بشكل احترافي من مواقع إلكترونية ومطبوعات وهوية كاملة للشركة',
     ],
+    tools: ['Meta Ads', 'TikTok Ads', 'Google Ads', 'Snapchat Ads', 'Adobe Suite', 'Figma', 'n8n'],
   },
   {
     title: 'Growth & Digital Marketing Consultant',
@@ -27,6 +28,7 @@ const experiences = [
       'كتابة وإخراج محتوى قصير يحقق مشاهدات عالية',
       'تطوير استراتيجيات عروض Funnels (وتحسين ROI)',
     ],
+    tools: ['Meta Ads', 'Google Analytics', 'Shopify', 'WooCommerce', 'Adobe Premiere', 'ChatGPT'],
   },
 ];
 
@@ -84,7 +86,7 @@ export default function Experience() {
               </div>
 
               {/* Bullets */}
-              <ul className="space-y-3">
+              <ul className="space-y-3 mb-6">
                 {exp.bullets.map((bullet, bulletIndex) => (
                   <li
                     key={bulletIndex}
@@ -95,6 +97,26 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
+
+              {/* Key Tools */}
+              <div className="border-t border-gray-100 pt-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Wrench className="w-4 h-4 text-blue-600" />
+                  <span className="text-sm font-medium text-gray-700">
+                    الأدوات الرئيسية
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {exp.tools.map((tool, toolIndex) => (
+                    <span
+                      key={toolIndex}
+                      className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-lg"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>

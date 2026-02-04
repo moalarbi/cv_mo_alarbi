@@ -7,6 +7,7 @@ const navLinks = [
   { href: '#experience', label: 'الخبرات' },
   { href: '#skills', label: 'المهارات' },
   { href: '#projects', label: 'المشاريع' },
+  { href: '#education', label: 'التعليم' },
   { href: '#contact', label: 'التواصل' },
 ];
 

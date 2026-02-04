@@ -1,4 +1,4 @@
-import { ArrowLeft, Play } from 'lucide-react';
+import { ArrowLeft, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Hero() {
@@ -48,12 +48,12 @@ export default function Hero() {
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           </Button>
           <Button
-            onClick={() => handleScroll('#experience')}
+            onClick={() => window.open('/cv_mo_alarbi/cv.pdf', '_blank')}
             variant="outline"
             className="rounded-full px-8 py-6 text-base font-medium border-gray-300 hover:bg-gray-50 flex items-center gap-2"
           >
-            <Play className="w-4 h-4" />
-            شاهد خبراتي
+            <Download className="w-4 h-4" />
+            تحميل السيرة PDF
           </Button>
         </div>
       </div>
