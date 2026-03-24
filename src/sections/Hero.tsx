@@ -48,7 +48,7 @@ export default function Hero() {
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           </Button>
           <Button
-            onClick={() => window.open('/cv_mo_alarbi/cv.pdf', '_blank')}
+            onClick={() => window.open('/cv_mo_alarbi/MohamedAlarbiCV.pdf', '_blank')}
             variant="outline"
             className="rounded-full px-8 py-6 text-base font-medium border-gray-300 hover:bg-gray-50 flex items-center gap-2"
           >
