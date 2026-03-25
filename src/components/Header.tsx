@@ -80,7 +80,7 @@ export default function Header() {
             }}
             className="w-10 h-10 rounded-full overflow-hidden bg-gray-900 flex items-center justify-center hover:bg-gray-800 transition-colors"
           >
-            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+            <img src="./logo.png" alt="Logo" className="w-full h-full object-contain" />
           </a>
         </div>
       </div>
