@@ -4,12 +4,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const education = [
   {
-    degree: 'ماجستير إدارة الأعمال (MBA)',
-    institution: 'Midocean University',
-    badge: 'قيد الدراسة',
-    badgeColor: 'bg-amber-100 text-amber-700',
-  },
-  {
     degree: 'بكالوريوس التسويق الرقمي',
     institution: 'Midocean University',
     years: '2022 — 2026',
