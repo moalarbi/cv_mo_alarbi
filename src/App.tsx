@@ -26,7 +26,6 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <ScrollToTop />
       <Toaster position="top-center" richColors />
     </div>
   );
