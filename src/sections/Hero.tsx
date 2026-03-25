@@ -35,7 +35,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p className="text-base sm:text-lg text-center text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed">
-          قائد تسويق رقمي بخبرة +12 عام في بناء استراتيجيات نمو العلامات التجارية وتحقيق نتائج ملموسة في السوق السعودي
+          قائد تسويق رقمي بخبرة +12 عام في بناء استراتيجيات نمو العلامات التجارية
         </p>
 
         {/* CTA Buttons */}
